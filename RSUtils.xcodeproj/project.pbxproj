@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06E24A1498D42496E5A2E721 /* Pods-RSUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSUtils.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSUtils/Pods-RSUtils.debug.xcconfig"; sourceTree = "<group>"; };
 		3269DFDF1FAAC8C200773F55 /* RSUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3269DFE21FAAC8C200773F55 /* RSUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSUtils.h; sourceTree = "<group>"; };
 		3269DFE31FAAC8C200773F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -22,6 +23,7 @@
 		3269DFEC1FAAD4AB00773F55 /* CMGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMGraphics.swift; sourceTree = "<group>"; };
 		3269DFEE1FAAE69B00773F55 /* NSDate+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+format.swift"; sourceTree = "<group>"; };
 		3269DFF01FAAE73D00773F55 /* UIDevice+systemVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+systemVersion.swift"; sourceTree = "<group>"; };
+		DCAD86041FA0EB897EFF52B9 /* Pods-RSUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSUtils.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSUtils/Pods-RSUtils.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,11 +37,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F338A5D74C3E38768C20DE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3269DFD51FAAC8C200773F55 = {
 			isa = PBXGroup;
 			children = (
 				3269DFE11FAAC8C200773F55 /* RSUtils */,
 				3269DFE01FAAC8C200773F55 /* Products */,
+				CC2A56746E32727F70B60BBA /* Pods */,
+				0F338A5D74C3E38768C20DE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +75,15 @@
 			path = RSUtils;
 			sourceTree = "<group>";
 		};
+		CC2A56746E32727F70B60BBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06E24A1498D42496E5A2E721 /* Pods-RSUtils.debug.xcconfig */,
+				DCAD86041FA0EB897EFF52B9 /* Pods-RSUtils.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -82,10 +102,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3269DFE71FAAC8C200773F55 /* Build configuration list for PBXNativeTarget "RSUtils" */;
 			buildPhases = (
+				6B861D1A5AAC267DAFBBF125 /* [CP] Check Pods Manifest.lock */,
 				3269DFDA1FAAC8C200773F55 /* Sources */,
 				3269DFDB1FAAC8C200773F55 /* Frameworks */,
 				3269DFDC1FAAC8C200773F55 /* Headers */,
 				3269DFDD1FAAC8C200773F55 /* Resources */,
+				DA4BB51A67982B5CF42B4E82 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,6 +160,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B861D1A5AAC267DAFBBF125 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RSUtils-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA4BB51A67982B5CF42B4E82 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSUtils/Pods-RSUtils-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3269DFDA1FAAC8C200773F55 /* Sources */ = {
@@ -203,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -257,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -269,6 +327,7 @@
 		};
 		3269DFE81FAAC8C200773F55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06E24A1498D42496E5A2E721 /* Pods-RSUtils.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -292,6 +351,7 @@
 		};
 		3269DFE91FAAC8C200773F55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCAD86041FA0EB897EFF52B9 /* Pods-RSUtils.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
