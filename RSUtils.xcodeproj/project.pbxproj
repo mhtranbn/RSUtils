@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		3269DFE41FAAC8C200773F55 /* RSUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 3269DFE21FAAC8C200773F55 /* RSUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3269DFEB1FAACBD600773F55 /* CMBaseCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269DFEA1FAACBD600773F55 /* CMBaseCustomView.swift */; };
+		3269DFED1FAAD4AB00773F55 /* CMGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269DFEC1FAAD4AB00773F55 /* CMGraphics.swift */; };
+		3269DFEF1FAAE69B00773F55 /* NSDate+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269DFEE1FAAE69B00773F55 /* NSDate+format.swift */; };
+		3269DFF11FAAE73D00773F55 /* UIDevice+systemVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269DFF01FAAE73D00773F55 /* UIDevice+systemVersion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3269DFDF1FAAC8C200773F55 /* RSUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3269DFE21FAAC8C200773F55 /* RSUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSUtils.h; sourceTree = "<group>"; };
 		3269DFE31FAAC8C200773F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3269DFEA1FAACBD600773F55 /* CMBaseCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMBaseCustomView.swift; sourceTree = "<group>"; };
+		3269DFEC1FAAD4AB00773F55 /* CMGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMGraphics.swift; sourceTree = "<group>"; };
+		3269DFEE1FAAE69B00773F55 /* NSDate+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+format.swift"; sourceTree = "<group>"; };
+		3269DFF01FAAE73D00773F55 /* UIDevice+systemVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+systemVersion.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +56,10 @@
 			children = (
 				3269DFE21FAAC8C200773F55 /* RSUtils.h */,
 				3269DFE31FAAC8C200773F55 /* Info.plist */,
+				3269DFEA1FAACBD600773F55 /* CMBaseCustomView.swift */,
+				3269DFEC1FAAD4AB00773F55 /* CMGraphics.swift */,
+				3269DFEE1FAAE69B00773F55 /* NSDate+format.swift */,
+				3269DFF01FAAE73D00773F55 /* UIDevice+systemVersion.swift */,
 			);
 			path = RSUtils;
 			sourceTree = "<group>";
@@ -95,6 +107,7 @@
 				TargetAttributes = {
 					3269DFDE1FAAC8C200773F55 = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3269DFED1FAAD4AB00773F55 /* CMGraphics.swift in Sources */,
+				3269DFEF1FAAE69B00773F55 /* NSDate+format.swift in Sources */,
+				3269DFEB1FAACBD600773F55 /* CMBaseCustomView.swift in Sources */,
+				3269DFF11FAAE73D00773F55 /* UIDevice+systemVersion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +270,7 @@
 		3269DFE81FAAC8C200773F55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -266,6 +284,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmosystem.net.RSUtils;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -274,6 +293,7 @@
 		3269DFE91FAAC8C200773F55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
