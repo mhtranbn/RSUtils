@@ -1,0 +1,6 @@
+framework module Pods_RSUtils {
+  umbrella header "Pods-RSUtils-umbrella.h"
+
+  export *
+  module * { export * }
+}

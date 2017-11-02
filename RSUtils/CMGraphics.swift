@@ -244,11 +244,9 @@ func CGPointIsOnEdgeOfRect(pt: CGPoint, rect: CGRect) -> Bool {
     }
     return false
 }
-func CGGetIntersectionOfSegmentRect(pt0: CGPoint, pt1: CGPoint, rect: CGRect, intersection: CGPoint) -> Bool {
-    var intersection = intersection
+func CGGetIntersectionOfSegmentRect(pt0: CGPoint, pt1: CGPoint, rect: CGRect) -> Bool {
     if pt0.equalTo(pt1) {
         if CGPointIsOnEdgeOfRect(pt: pt0, rect: rect) {
-            intersection = pt0
             return true
         }
     }
@@ -256,22 +254,18 @@ func CGGetIntersectionOfSegmentRect(pt0: CGPoint, pt1: CGPoint, rect: CGRect, in
         let interPoint = CGPoint.zero
         var type: CGIntersectionType = CGGetIntersectionOfSegments(p00: pt0, p01: pt1, p10: rect.origin, p11: CGPoint(x: rect.origin.x, y: rect.maxY), intersection: interPoint)
         if type == CGIntersectionType.kCGIntersection && CGCheckPointMiddle(pt0: pt0, middlePt: interPoint, pt1: pt1) {
-            intersection = interPoint
             return true
         }
         type = CGGetIntersectionOfSegments(p00: pt0, p01: pt1, p10: rect.origin, p11: CGPoint(x: rect.maxX, y: rect.origin.y), intersection: interPoint)
         if type == CGIntersectionType.kCGIntersection && CGCheckPointMiddle(pt0: pt0, middlePt: interPoint, pt1: pt1) {
-            intersection = interPoint
             return true
         }
         type = CGGetIntersectionOfSegments(p00: pt0, p01: pt1, p10: CGPoint(x: rect.maxX, y: rect.maxY), p11: CGPoint(x: rect.origin.x, y: rect.maxY), intersection: interPoint)
         if type == CGIntersectionType.kCGIntersection && CGCheckPointMiddle(pt0: pt0, middlePt: interPoint, pt1: pt1) {
-            intersection = interPoint
             return true
         }
         type = CGGetIntersectionOfSegments(p00: pt0, p01: pt1, p10: CGPoint(x: rect.maxX, y: rect.maxY), p11: CGPoint(x: rect.origin.x, y: rect.maxY), intersection: interPoint)
         if type == CGIntersectionType.kCGIntersection && CGCheckPointMiddle(pt0: pt0, middlePt: interPoint, pt1: pt1) {
-            intersection = interPoint
             return true
         }
     }
