@@ -33,8 +33,6 @@ github "mhtranbn/RSUtils"
 ## Setting up with CocoaPods
 ```swift
 source 'https://github.com/CocoaPods/Specs.git'
-```
-```swift
 pod 'RSUtils'
 ```
 
