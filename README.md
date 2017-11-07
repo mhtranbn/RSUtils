@@ -40,7 +40,7 @@ pod 'RSUtils'
 
 ## Authors
 
-* **mhtranbn** - *Initial work* - [mhtranbn](https://github.com/mhtranbn)
+* **mhtranbn** - *Initial work* - [mhtranbn](https://github.com/mhtranbn), [duongpq](https://runsystem.net/),[duongpq](https://www.facebook.com/soleilpqd), [duongpq](duongpq@runsystem.net)
 
 See also the list of [contributors](https://github.com/mhtranbn/RSUtils/network/members).
 
