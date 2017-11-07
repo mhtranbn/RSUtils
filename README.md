@@ -11,7 +11,7 @@ import RSUtils
 
 ### Prerequisites
 
-*Q > A. The framework compiles on Swift 3.x or 4.x, but it can format programs written in Swift 2.x, 3.x or 4.x. Swift 2.x is no longer actively supported however, and newer rules may not work correctly with Swift 2.x. If you find that SwiftFormat breaks your 2.x codebase, the best solution is probably to revert to an earlier SwiftFormat release, or enable only a subset of rules.*
+*Q > A. The framework compiles on Swift 3.x or 4.x, but it can format programs written in Swift 2.x, 3.x or 4.x. Swift 2.x is no longer actively supported however, and newer rules may not work correctly with Swift 2.x. If you find that RSUtils breaks your 2.x codebase, the best solution is probably to revert to an earlier RSUtils release, or enable only a subset of rules.*
 
 ## Setting up with Carthage
 
@@ -33,6 +33,8 @@ github "mhtranbn/RSUtils"
 ## Setting up with CocoaPods
 ```swift
 source 'https://github.com/CocoaPods/Specs.git'
+```
+```swift
 pod 'RSUtils'
 ```
 
