@@ -90,14 +90,12 @@ func CGRectMakeFitCircle(center: CGPoint, radius: CGFloat, sizeRatio: CGSize) ->
     return CGRectMoveToCenter(rect: result, center: center)
 }
 
-//  The converted code is limited to 4 KB.
-//  Upgrade your plan to remove this limitation.
+
 func CGSizeMakeFillCircle(radius: CGFloat, sizeRatio: CGSize) -> CGSize {
     let dia: CGFloat = radius * 2
     return CGSizeMakeFillSize(sizeToFill: CGSize(width: dia, height: dia), sizeRatio: sizeRatio)
 }
-//  The converted code is limited to 4 KB.
-//  Upgrade your plan to remove this limitation.
+
 func CGRectMakeFillCircle(center: CGPoint, radius: CGFloat, sizeRatio: CGSize) -> CGRect {
     var sizeRatio = sizeRatio
     sizeRatio = CGSizeMakeFillCircle(radius: radius, sizeRatio: sizeRatio)
@@ -105,19 +103,16 @@ func CGRectMakeFillCircle(center: CGPoint, radius: CGFloat, sizeRatio: CGSize) -
     result.size = sizeRatio
     return CGRectMoveToCenter(rect: result, center: center)
 }
-//  The converted code is limited to 4 KB.
-//  Upgrade your plan to remove this limitation.
+
 func RGB(red: UInt8, green: UInt8, blue: UInt8) -> UIColor {
     return UIColor(red: CGFloat((red / 255)), green: CGFloat((green / 255)), blue: CGFloat((blue / 255)), alpha: 1.0)
 }
-//  The converted code is limited to 4 KB.
-//  Upgrade your plan to remove this limitation.
+
 func RGBA(red: UInt8, green: UInt8, blue: UInt8, alpha: Float) -> UIColor {
     return UIColor(red: CGFloat((red / 255)), green: CGFloat((green / 255)), blue: CGFloat((blue / 255)), alpha: CGFloat(alpha))
 }
 
-//  The converted code is limited to 4 KB.
-//  Upgrade your plan to remove this limitation.
+
 func ARGB(hexa: UInt32) -> UIColor {
     var alpha = Float((((hexa >> 24) & 0xff) * UInt32(1.0)))
     alpha = alpha / 0xff
@@ -126,8 +121,7 @@ func ARGB(hexa: UInt32) -> UIColor {
     let blue = UInt8((hexa & 0xff))
     return RGBA(red: red, green: green, blue: blue, alpha: alpha)
 }
-//  The converted code is limited to 4 KB.
-//  Upgrade your plan to remove this limitation.
+
 // 2D graphic Math
 func CGVectorFixAngleSinCosValue(a: Double) -> Double {
     var a = a
@@ -178,10 +172,8 @@ func CGVectorGetAngleBetweenVectors(vec0: CGVector, vec1: CGVector) -> Double {
 func CGCheckPointMiddle(pt0: CGPoint, middlePt: CGPoint, pt1: CGPoint) -> Bool {
     return middlePt.x <= max(pt0.x, pt1.x) && middlePt.x >= min(pt0.x, pt1.x) && middlePt.y <= max(pt0.y, pt1.y) && middlePt.y >= min(pt0.y, pt1.y)
 }
-//  The converted code is limited to 4 KB.
-//  Upgrade your plan to remove this limitation.
-//  The converted code is limited to 4 KB.
-//  Upgrade your plan to remove this limitation.
+
+
 enum CGIntersectionType : Int {
     /// 2 lines are same
     case kCGCollinear
