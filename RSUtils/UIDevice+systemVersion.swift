@@ -81,3 +81,26 @@ public extension UIDevice {
     }
     
 }
+
+enum iOSVersionComparisonMode : UInt {
+    /**
+         *  System version is same with target version
+         */
+    case kiOSVerCmpSame
+    /**
+         *  System version is newer than target version
+         */
+    case kiOSVerCmpNewer
+    /**
+         *  System version is newer or same with target version
+         */
+    case kiOSVerCmpSameOrNewer
+    /**
+         *  System version is older than target version
+         */
+    case kiOSVerCmpOlder
+    /**
+         *  System verison is older or same with target version
+         */
+    case kiOSVerCmpSameOrOlder
+}
