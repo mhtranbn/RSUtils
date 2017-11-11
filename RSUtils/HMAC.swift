@@ -2,163 +2,97 @@
 //  HMAC.swift
 //  RSUtils
 //
-//  Created by mhtran on 11/10/17.
+//  Created by mhtran on 11/2/17.
 //  Copyright © 2017 mhtran. All rights reserved.
 //
+public final class HMAC: Authenticator {
 
-import Foundation
+    public enum Error: Swift.Error {
+        case authenticateError
+        case invalidInput
+    }
 
-///
-/// Calculates a cryptographic Hash-Based Message Authentication Code (HMAC).
-///
-open class HMAC : Updateable
-{
-    ///
-    /// Enumerates available algorithms.
-    ///
-    public enum Algorithm
-    {
-        /// Message Digest 5
-        case md5,
-        /// Secure Hash Algorithm 1
-            sha1,
-        /// Secure Hash Algorithm 2 224-bit
-            sha224,
-        /// Secure Hash Algorithm 2 256-bit
-            sha256,
-        /// Secure Hash Algorithm 2 384-bit
-            sha384,
-        /// Secure Hash Algorithm 2 512-bit
-            sha512
-        
-        static let fromNative : [CCHmacAlgorithm: Algorithm] = [
-            CCHmacAlgorithm(kCCHmacAlgSHA1):.sha1,
-            CCHmacAlgorithm(kCCHmacAlgSHA1):.md5,
-            CCHmacAlgorithm(kCCHmacAlgSHA256):.sha256,
-            CCHmacAlgorithm(kCCHmacAlgSHA384):.sha384,
-            CCHmacAlgorithm(kCCHmacAlgSHA512):.sha512,
-            CCHmacAlgorithm(kCCHmacAlgSHA224):.sha224 ]
-        
-        func nativeValue() -> CCHmacAlgorithm {
+    public enum Variant {
+        case sha1, sha256, sha384, sha512, md5
+
+        var digestLength: Int {
             switch self {
             case .sha1:
-                return CCHmacAlgorithm(kCCHmacAlgSHA1)
-            case .md5:
-                return CCHmacAlgorithm(kCCHmacAlgMD5)
-            case .sha224:
-                return CCHmacAlgorithm(kCCHmacAlgSHA224)
+                return SHA1.digestLength
             case .sha256:
-                return CCHmacAlgorithm(kCCHmacAlgSHA256)
+                return SHA2.Variant.sha256.digestLength
             case .sha384:
-                return CCHmacAlgorithm(kCCHmacAlgSHA384)
+                return SHA2.Variant.sha384.digestLength
             case .sha512:
-                return CCHmacAlgorithm(kCCHmacAlgSHA512)
-                
+                return SHA2.Variant.sha512.digestLength
+            case .md5:
+                return MD5.digestLength
             }
         }
-        
-        static func fromNativeValue(nativeAlg : CCHmacAlgorithm) -> Algorithm?
-        {
-            return fromNative[nativeAlg]
-        }
-        
-        ///
-        /// Obtains the digest length produced by this algorithm (in bytes).
-        ///
-        public func digestLength() -> Int {
+
+        func calculateHash(_ bytes: Array<UInt8>) -> Array<UInt8>? {
             switch self {
             case .sha1:
-                return Int(CC_SHA1_DIGEST_LENGTH)
-            case .md5:
-                return Int(CC_MD5_DIGEST_LENGTH)
-            case .sha224:
-                return Int(CC_SHA224_DIGEST_LENGTH)
+                return Digest.sha1(bytes)
             case .sha256:
-                return Int(CC_SHA256_DIGEST_LENGTH)
+                return Digest.sha256(bytes)
             case .sha384:
-                return Int(CC_SHA384_DIGEST_LENGTH)
+                return Digest.sha384(bytes)
             case .sha512:
-                return Int(CC_SHA512_DIGEST_LENGTH)
+                return Digest.sha512(bytes)
+            case .md5:
+                return Digest.md5(bytes)
+            }
+        }
+
+        func blockSize() -> Int {
+            switch self {
+            case .md5:
+                return MD5.blockSize
+            case .sha1, .sha256:
+                return 64
+            case .sha384, .sha512:
+                return 128
             }
         }
     }
-    
-    typealias Context = UnsafeMutablePointer<CCHmacContext>
-    
-    /// Status of the calculation
-    open var status : Status = .success
-    
-    let context = Context.allocate(capacity: 1)
-    var algorithm: Algorithm
-    
-    init(algorithm: Algorithm, keyBuffer: UnsafeRawPointer, keyByteCount: Int)
-    {
-        self.algorithm = algorithm
-        CCHmacInit(context, algorithm.nativeValue(), keyBuffer, size_t(keyByteCount))
+
+    var key: Array<UInt8>
+    let variant: Variant
+
+    public init(key: Array<UInt8>, variant: HMAC.Variant = .md5) {
+        self.variant = variant
+        self.key = key
+
+        if key.count > variant.blockSize() {
+            if let hash = variant.calculateHash(key) {
+                self.key = hash
+            }
+        }
+
+        if key.count < variant.blockSize() {
+            self.key = ZeroPadding().add(to: key, blockSize: variant.blockSize())
+        }
     }
-    
-    ///
-    /// Creates a new HMAC instance with the specified algorithm and key.
-    ///
-    /// - parameter algorithm: selects the algorithm
-    /// - parameter key: specifies the key
-    ///
-    public init(algorithm: Algorithm, key: Data)
-    {
-        self.algorithm = algorithm
-        CCHmacInit(context, algorithm.nativeValue(), (key as NSData).bytes, size_t(key.count))
-    }
-    
-    ///
-    /// Creates a new HMAC instance with the specified algorithm and key.
-    ///
-    /// - parameter algorithm: selects the algorithm
-    /// - parameter key: specifies the key
-    ///
-    public init(algorithm: Algorithm, key: [UInt8])
-    {
-        self.algorithm = algorithm
-        CCHmacInit(context, algorithm.nativeValue(), key, size_t(key.count))
-    }
-    
-    ///
-    /// Creates a new HMAC instance with the specified algorithm and key string.
-    /// The key string is converted to bytes using UTF8 encoding.
-    ///
-    /// - parameter algorithm: selects the algorithm
-    /// - parameter key: specifies the key
-    ///
-    public init(algorithm: Algorithm, key: String)
-    {
-        self.algorithm = algorithm
-        CCHmacInit(context, algorithm.nativeValue(), key, size_t(key.lengthOfBytes(using: String.Encoding.utf8)))
-    }
-    
-    deinit {
-        context.deallocate(capacity: 1)
-    }
- 
-    ///
-    /// Updates the calculation of the HMAC with the contents of a buffer.
-    ///
-    /// - returns: the calculated HMAC
-    ///
-    open func update(buffer: UnsafeRawPointer, byteCount: size_t) -> Self?
-    {
-        CCHmacUpdate(context, buffer, byteCount)
-        return self 
-    }
-    
-    ///
-    /// Finalizes the HMAC calculation
-    ///
-    /// - returns: the calculated HMAC
-    ///
-    open func final() -> [UInt8]
-    {
-        var hmac = Array<UInt8>(repeating: 0, count: algorithm.digestLength())
-        CCHmacFinal(context, &hmac)
-        return hmac
+
+    // MARK: Authenticator
+
+    public func authenticate(_ bytes: Array<UInt8>) throws -> Array<UInt8> {
+        var opad = Array<UInt8>(repeating: 0x5c, count: variant.blockSize())
+        for idx in key.indices {
+            opad[idx] = key[idx] ^ opad[idx]
+        }
+        var ipad = Array<UInt8>(repeating: 0x36, count: variant.blockSize())
+        for idx in key.indices {
+            ipad[idx] = key[idx] ^ ipad[idx]
+        }
+
+        guard let ipadAndMessageHash = variant.calculateHash(ipad + bytes),
+            let result = variant.calculateHash(opad + ipadAndMessageHash) else {
+            throw Error.authenticateError
+        }
+
+        // return Array(result[0..<10]) // 80 bits
+        return result
     }
 }
-

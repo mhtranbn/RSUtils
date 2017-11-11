@@ -1,13 +1,10 @@
 //
-//  Async.swift.swift
+//  Async.swift
+//  RSUtils
 //
-//  Created by mhtran on 11/10/17.
+//  Created by mhtran on 11/2/17.
+//  Copyright © 2017 mhtran. All rights reserved.
 //
-//	OS X 10.10+ and iOS 8.0+
-//	Only use with ARC
-//
-//	The MIT License (MIT)
-//	Copyright (c) 11/10/17 mhtran
 import Foundation
 
 // MARK: - DSL for GCD queues
