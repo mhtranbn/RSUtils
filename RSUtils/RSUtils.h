@@ -53,5 +53,7 @@ FOUNDATION_EXPORT const unsigned char RSUtilsVersionString[];
 #import "RSUtils/StatefulViewController.h"
 #import "RSUtils/UIDevice+systemVersion.h"
 #import "RSUtils/SwiftyTimer.h"
+#import "RSUtils/NSObject+dispatch.h"
+#import "RSUtils/StringAttributes.h"
 
 
