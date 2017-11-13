@@ -64,23 +64,23 @@ extension UIViewController {
     func presentOnTop(with viewController: UIViewController, animated flag: Bool, completion: @escaping () -> Void) -> UIViewController? {
         let controller: UIViewController? = getTopPresented()
         if controller?.isBeingPresented != nil {
-            delayToMain(seconds: VC_PRESENT_RETRY_TIME, block: {() -> Void in
+            delayToMain(VC_PRESENT_RETRY_TIME, {
                 if let vc = controller {
-                  _ = vc.presentOnTop(with: viewController, animated: flag, completion: completion)
+                    _ = vc.presentOnTop(with: viewController, animated: flag, completion: completion)
                 }
-            }())
+            })
             return nil
         }
         else if controller?.isBeingDismissed != nil {
             weak var presentingVC: UIViewController? = controller?.searchStatble()
-            delayToMain(seconds: VC_PRESENT_RETRY_TIME, block: {() -> Void in
+            delayToMain(VC_PRESENT_RETRY_TIME, {
                 if presentingVC != nil {
                     _ = presentingVC?.presentOnTop(with: viewController, animated: flag, completion: completion)
                 }
                 else {
                     _ = UIViewController.presentOnTop(with: viewController, animated: flag, completion: completion)
                 }
-            }())
+            })
             return nil
         }
         else {
