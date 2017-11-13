@@ -50,7 +50,6 @@ FOUNDATION_EXPORT const unsigned char RSUtilsVersionString[];
 #import "RSUtils/CryptoSwift.h"
 #import "RSUtils/Format.h"
 #import "RSUtils/Localize_Swift.h"
-#import "RSUtils/SwiftValidator.h"
 #import "RSUtils/SwiftyJSON.h"
 #import "RSUtils/StatefulViewController.h"
 #import "RSUtils/UIDevice+systemVersion.h"

@@ -171,7 +171,6 @@
 		329BC50E1FB5333500572B90 /* ImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC4FF1FB5333500572B90 /* ImageFile.swift */; };
 		329BC50F1FB5333500572B90 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC5001FB5333500572B90 /* Path.swift */; };
 		329BC5101FB5333500572B90 /* RelativePathType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC5011FB5333500572B90 /* RelativePathType.swift */; };
-		32A83DBA1FB694A300498CC1 /* SwiftValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A83DB91FB694A300498CC1 /* SwiftValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32A83DCF1FB694B200498CC1 /* RequiredRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A83DBB1FB694AF00498CC1 /* RequiredRule.swift */; };
 		32A83DD01FB694B200498CC1 /* AlphaRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A83DBC1FB694AF00498CC1 /* AlphaRule.swift */; };
 		32A83DD11FB694B200498CC1 /* AlphaNumericRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A83DBD1FB694AF00498CC1 /* AlphaNumericRule.swift */; };
@@ -437,7 +436,6 @@
 		329BC4FF1FB5333500572B90 /* ImageFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFile.swift; sourceTree = "<group>"; };
 		329BC5001FB5333500572B90 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		329BC5011FB5333500572B90 /* RelativePathType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativePathType.swift; sourceTree = "<group>"; };
-		32A83DB91FB694A300498CC1 /* SwiftValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftValidator.h; path = ../../SwiftValidator/SwiftValidator/SwiftValidator.h; sourceTree = "<group>"; };
 		32A83DBB1FB694AF00498CC1 /* RequiredRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequiredRule.swift; sourceTree = "<group>"; };
 		32A83DBC1FB694AF00498CC1 /* AlphaRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaRule.swift; sourceTree = "<group>"; };
 		32A83DBD1FB694AF00498CC1 /* AlphaNumericRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaNumericRule.swift; sourceTree = "<group>"; };
@@ -821,7 +819,6 @@
 				329BC4C71FB52C7B00572B90 /* String+Timepiece.swift */,
 				32D53F7D1FB88E9F00012803 /* StringAttributes.h */,
 				32D53F7B1FB88E9F00012803 /* StringAttributes.swift */,
-				32A83DB91FB694A300498CC1 /* SwiftValidator.h */,
 				320DE3AE1FB6062D00C1BB2E /* SwiftyJSON.h */,
 				320DE3AD1FB6062D00C1BB2E /* SwiftyJSON.swift */,
 				320DE3A91FB603F000C1BB2E /* SwiftyTimer.h */,
@@ -922,7 +919,6 @@
 				32A83E1F1FB6999500498CC1 /* OBJProperty+CustomAttributes.h in Headers */,
 				320DE37E1FB5EA8C00C1BB2E /* CryptoSwift.h in Headers */,
 				32A83E141FB6999500498CC1 /* AppUI_Kit_Switch.h in Headers */,
-				32A83DBA1FB694A300498CC1 /* SwiftValidator.h in Headers */,
 				32A83E241FB6999500498CC1 /* OBJProperty+Dynamic.h in Headers */,
 				32D53F891FB89D0D00012803 /* AttributedTextView.h in Headers */,
 				32A83E171FB6999500498CC1 /* NSDictionary+PropertyAttributes.h in Headers */,
