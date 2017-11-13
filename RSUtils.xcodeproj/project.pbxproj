@@ -129,10 +129,12 @@
 		32493F5C1FB61CFA00750B12 /* pngset.c in Sources */ = {isa = PBXBuildFile; fileRef = 32493F3A1FB61CFA00750B12 /* pngset.c */; };
 		32493F5D1FB61CFA00750B12 /* GCDTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32493F3B1FB61CFA00750B12 /* GCDTimer.swift */; };
 		32493F5E1FB61CFA00750B12 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32493F3C1FB61CFA00750B12 /* Reader.swift */; };
+		325939671FB9829300889178 /* CommonLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325939661FB9829300889178 /* CommonLog.swift */; };
 		3269DFE41FAAC8C200773F55 /* RSUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 3269DFE21FAAC8C200773F55 /* RSUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3269DFEB1FAACBD600773F55 /* CMBaseCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269DFEA1FAACBD600773F55 /* CMBaseCustomView.swift */; };
 		3269DFED1FAAD4AB00773F55 /* CMGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269DFEC1FAAD4AB00773F55 /* CMGraphics.swift */; };
 		3269DFF11FAAE73D00773F55 /* UIDevice+systemVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269DFF01FAAE73D00773F55 /* UIDevice+systemVersion.swift */; };
+		328E04321FB98439005E6A8D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328E04311FB98438005E6A8D /* Extensions.swift */; };
 		329BC4C41FB52C2E00572B90 /* Date+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC4C31FB52C2E00572B90 /* Date+format.swift */; };
 		329BC4C61FB52C5F00572B90 /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC4C51FB52C5F00572B90 /* Int+Timepiece.swift */; };
 		329BC4C81FB52C7B00572B90 /* String+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC4C71FB52C7B00572B90 /* String+Timepiece.swift */; };
@@ -390,12 +392,15 @@
 		32493F3A1FB61CFA00750B12 /* pngset.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngset.c; sourceTree = "<group>"; };
 		32493F3B1FB61CFA00750B12 /* GCDTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDTimer.swift; sourceTree = "<group>"; };
 		32493F3C1FB61CFA00750B12 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
+		325939661FB9829300889178 /* CommonLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonLog.swift; sourceTree = "<group>"; };
 		3269DFDF1FAAC8C200773F55 /* RSUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3269DFE21FAAC8C200773F55 /* RSUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSUtils.h; sourceTree = "<group>"; };
 		3269DFE31FAAC8C200773F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3269DFEA1FAACBD600773F55 /* CMBaseCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMBaseCustomView.swift; sourceTree = "<group>"; };
 		3269DFEC1FAAD4AB00773F55 /* CMGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMGraphics.swift; sourceTree = "<group>"; };
 		3269DFF01FAAE73D00773F55 /* UIDevice+systemVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+systemVersion.swift"; sourceTree = "<group>"; };
+		328E042F1FB98311005E6A8D /* CommonLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonLog.swift; path = "../../Desktop/untitled folder/CommonLog.swift"; sourceTree = "<group>"; };
+		328E04311FB98438005E6A8D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		329BC4C31FB52C2E00572B90 /* Date+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+format.swift"; sourceTree = "<group>"; };
 		329BC4C51FB52C5F00572B90 /* Int+Timepiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Timepiece.swift"; sourceTree = "<group>"; };
 		329BC4C71FB52C7B00572B90 /* String+Timepiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Timepiece.swift"; sourceTree = "<group>"; };
@@ -650,6 +655,9 @@
 		3269DFE11FAAC8C200773F55 /* RSUtils */ = {
 			isa = PBXGroup;
 			children = (
+				328E04311FB98438005E6A8D /* Extensions.swift */,
+				325939661FB9829300889178 /* CommonLog.swift */,
+				328E042F1FB98311005E6A8D /* CommonLog.swift */,
 				32493F021FB618E100750B12 /* AddressExtensions.swift */,
 				32493F0B1FB618E300750B12 /* AddressFormatter.swift */,
 				320DE3001FB5EA7F00C1BB2E /* AES.Cryptors.swift */,
@@ -1227,6 +1235,7 @@
 				320DE3B91FB60A3F00C1BB2E /* String+LocalizeBundle.swift in Sources */,
 				329BC4CE1FB52DAF00572B90 /* NSArrayFile.swift in Sources */,
 				320DE3821FB5F42800C1BB2E /* UIScreen+type.swift in Sources */,
+				328E04321FB98439005E6A8D /* Extensions.swift in Sources */,
 				320DE3701FB5EA8400C1BB2E /* ChaCha20+Foundation.swift in Sources */,
 				329BC50D1FB5333500572B90 /* NSData+FileKit.swift in Sources */,
 				320DE34C1FB5EA8400C1BB2E /* UInt64+Extension.swift in Sources */,
@@ -1242,6 +1251,7 @@
 				320DE3691FB5EA8400C1BB2E /* Int+Extension.swift in Sources */,
 				32A83DEB1FB6953500498CC1 /* ValidatorDictionary.swift in Sources */,
 				329BC5051FB5333500572B90 /* NSString+FileKit.swift in Sources */,
+				325939671FB9829300889178 /* CommonLog.swift in Sources */,
 				32493F151FB618E300750B12 /* NumberFormatter.swift in Sources */,
 				320DE3781FB5EA8400C1BB2E /* Blowfish.swift in Sources */,
 				329BC4EE1FB530C400572B90 /* FileSystemEventStream.swift in Sources */,
