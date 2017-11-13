@@ -402,7 +402,6 @@
 		3269DFF01FAAE73D00773F55 /* UIDevice+systemVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+systemVersion.swift"; sourceTree = "<group>"; };
 		32760D411FB9B79B00A93388 /* NSObject+dispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+dispatch.h"; sourceTree = "<group>"; };
 		32760D421FB9B79B00A93388 /* NSObject+dispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+dispatch.m"; sourceTree = "<group>"; };
-		328E042F1FB98311005E6A8D /* CommonLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonLog.swift; path = "../../Desktop/untitled folder/CommonLog.swift"; sourceTree = "<group>"; };
 		328E04311FB98438005E6A8D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		329BC4C31FB52C2E00572B90 /* Date+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+format.swift"; sourceTree = "<group>"; };
 		329BC4C51FB52C5F00572B90 /* Int+Timepiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Timepiece.swift"; sourceTree = "<group>"; };
@@ -661,7 +660,6 @@
 				32760D421FB9B79B00A93388 /* NSObject+dispatch.m */,
 				328E04311FB98438005E6A8D /* Extensions.swift */,
 				325939661FB9829300889178 /* CommonLog.swift */,
-				328E042F1FB98311005E6A8D /* CommonLog.swift */,
 				32493F021FB618E100750B12 /* AddressExtensions.swift */,
 				32493F0B1FB618E300750B12 /* AddressFormatter.swift */,
 				320DE3001FB5EA7F00C1BB2E /* AES.Cryptors.swift */,
