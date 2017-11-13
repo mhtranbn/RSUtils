@@ -243,12 +243,6 @@
 		32BF18931FB6A6C200AEDE23 /* CMGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BF18911FB6A6C200AEDE23 /* CMGraphics.m */; };
 		32BF18961FB6A73400AEDE23 /* UIDevice+systemVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 32BF18941FB6A73300AEDE23 /* UIDevice+systemVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32BF18971FB6A73400AEDE23 /* UIDevice+systemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BF18951FB6A73300AEDE23 /* UIDevice+systemVersion.m */; };
-		32BF18A01FB6A88600AEDE23 /* APNGImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF18981FB6A88400AEDE23 /* APNGImageCache.swift */; };
-		32BF18A11FB6A88600AEDE23 /* APNGKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 32BF18991FB6A88400AEDE23 /* APNGKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32BF18A21FB6A88600AEDE23 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF189A1FB6A88400AEDE23 /* Frame.swift */; };
-		32BF18A31FB6A88600AEDE23 /* APNGImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF189B1FB6A88500AEDE23 /* APNGImageView.swift */; };
-		32BF18A41FB6A88600AEDE23 /* APNGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF189C1FB6A88500AEDE23 /* APNGImage.swift */; };
-		32BF18A51FB6A88600AEDE23 /* Disassembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF189D1FB6A88500AEDE23 /* Disassembler.swift */; };
 		32BF18A91FB6C65C00AEDE23 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF18A81FB6C65C00AEDE23 /* Popover.swift */; };
 		32BF18AF1FB6C94400AEDE23 /* ViewStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF18AA1FB6C94300AEDE23 /* ViewStateMachine.swift */; };
 		32BF18B01FB6C94400AEDE23 /* StatefulPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF18AB1FB6C94300AEDE23 /* StatefulPlaceholderView.swift */; };
@@ -515,12 +509,6 @@
 		32BF18911FB6A6C200AEDE23 /* CMGraphics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMGraphics.m; sourceTree = "<group>"; };
 		32BF18941FB6A73300AEDE23 /* UIDevice+systemVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+systemVersion.h"; sourceTree = "<group>"; };
 		32BF18951FB6A73300AEDE23 /* UIDevice+systemVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+systemVersion.m"; sourceTree = "<group>"; };
-		32BF18981FB6A88400AEDE23 /* APNGImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APNGImageCache.swift; sourceTree = "<group>"; };
-		32BF18991FB6A88400AEDE23 /* APNGKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APNGKit.h; sourceTree = "<group>"; };
-		32BF189A1FB6A88400AEDE23 /* Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
-		32BF189B1FB6A88500AEDE23 /* APNGImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APNGImageView.swift; sourceTree = "<group>"; };
-		32BF189C1FB6A88500AEDE23 /* APNGImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APNGImage.swift; sourceTree = "<group>"; };
-		32BF189D1FB6A88500AEDE23 /* Disassembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disassembler.swift; sourceTree = "<group>"; };
 		32BF189E1FB6A88500AEDE23 /* GCDTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GCDTimer.swift; path = ../../APNGKit/APNGKit/GCDTimer.swift; sourceTree = "<group>"; };
 		32BF189F1FB6A88600AEDE23 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reader.swift; path = ../../APNGKit/APNGKit/Reader.swift; sourceTree = "<group>"; };
 		32BF18A81FB6C65C00AEDE23 /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
@@ -674,10 +662,6 @@
 				320DE3051FB5EA8000C1BB2E /* AES.swift */,
 				32A83DBD1FB694AF00498CC1 /* AlphaNumericRule.swift */,
 				32A83DBC1FB694AF00498CC1 /* AlphaRule.swift */,
-				32BF189C1FB6A88500AEDE23 /* APNGImage.swift */,
-				32BF18981FB6A88400AEDE23 /* APNGImageCache.swift */,
-				32BF189B1FB6A88500AEDE23 /* APNGImageView.swift */,
-				32BF18991FB6A88400AEDE23 /* APNGKit.h */,
 				32A83DFB1FB6999400498CC1 /* AppUI_Kit_Switch.h */,
 				320DE3061FB5EA8000C1BB2E /* Array+Extension.swift */,
 				320DE3081FB5EA8000C1BB2E /* Array+Extensions.swift */,
@@ -730,7 +714,6 @@
 				320DE30B1FB5EA8000C1BB2E /* Digest.swift */,
 				320DE3261FB5EA8200C1BB2E /* DigestType.swift */,
 				329BC4DB1FB52E4600572B90 /* DirectoryEnumerator.swift */,
-				32BF189D1FB6A88500AEDE23 /* Disassembler.swift */,
 				32A83DC61FB694B000498CC1 /* EmailRule.swift */,
 				32A83DC41FB694B000498CC1 /* ExactLengthRule.swift */,
 				329BC4E11FB52E8700572B90 /* File.swift */,
@@ -745,7 +728,6 @@
 				32A83DC71FB694B100498CC1 /* FloatRule.swift */,
 				32493F041FB618E200750B12 /* Format.h */,
 				320DE32A1FB5EA8200C1BB2E /* Foundation */,
-				32BF189A1FB6A88400AEDE23 /* Frame.swift */,
 				32A83DCC1FB694B200498CC1 /* FullNameRule.swift */,
 				329BC4DD1FB52E5500572B90 /* GCDFSEvent.swift */,
 				329BC4DF1FB52E6F00572B90 /* GCDFSWatcher.swift */,
@@ -968,7 +950,6 @@
 				32BF18871FB69D7C00AEDE23 /* CMDataTypes.h in Headers */,
 				32BF18B11FB6C94400AEDE23 /* StatefulViewController.h in Headers */,
 				32BF18961FB6A73400AEDE23 /* UIDevice+systemVersion.h in Headers */,
-				32BF18A11FB6A88600AEDE23 /* APNGKit.h in Headers */,
 				32BF18851FB69D4300AEDE23 /* CMPopup.h in Headers */,
 				32BF188E1FB69DB400AEDE23 /* NSFileManager+appFolder.h in Headers */,
 				32BF18921FB6A6C200AEDE23 /* CMGraphics.h in Headers */,
@@ -1097,13 +1078,11 @@
 				32D53F881FB89D0D00012803 /* AttributedLabel.swift in Sources */,
 				32493F191FB61B5100750B12 /* CurrencyTextField.swift in Sources */,
 				320DE34B1FB5EA8400C1BB2E /* Array+Extensions.swift in Sources */,
-				32BF18A21FB6A88600AEDE23 /* Frame.swift in Sources */,
 				32A83DE11FB694B200498CC1 /* ValidationRule.swift in Sources */,
 				32A83E271FB6999500498CC1 /* OBJMethod.m in Sources */,
 				32A83DD11FB694B200498CC1 /* AlphaNumericRule.swift in Sources */,
 				32FB62041FB51BC5001B2ECF /* CMDataTypes.swift in Sources */,
 				32493F111FB618E300750B12 /* Constants.swift in Sources */,
-				32BF18A41FB6A88600AEDE23 /* APNGImage.swift in Sources */,
 				320DE3411FB5EA8400C1BB2E /* ChaCha20.swift in Sources */,
 				320DE3481FB5EA8400C1BB2E /* AES.swift in Sources */,
 				32493F561FB61CFA00750B12 /* pngread.c in Sources */,
@@ -1212,7 +1191,6 @@
 				32A83DF11FB6991900498CC1 /* CMDefaults.m in Sources */,
 				320DE3491FB5EA8400C1BB2E /* Array+Extension.swift in Sources */,
 				329BC5061FB5333500572B90 /* PropertyListType.swift in Sources */,
-				32BF18A31FB6A88600AEDE23 /* APNGImageView.swift in Sources */,
 				320DE36C1FB5EA8400C1BB2E /* Blowfish+Foundation.swift in Sources */,
 				32493F141FB618E300750B12 /* General.swift in Sources */,
 				32493F571FB61CFA00750B12 /* pngmem.c in Sources */,
@@ -1239,7 +1217,6 @@
 				32A83DD81FB694B200498CC1 /* ExactLengthRule.swift in Sources */,
 				32A83DF91FB6996100498CC1 /* NSArrayDictionary+Description.m in Sources */,
 				32493F5B1FB61CFA00750B12 /* pngrutil.c in Sources */,
-				32BF18A51FB6A88600AEDE23 /* Disassembler.swift in Sources */,
 				320DE3661FB5EA8400C1BB2E /* OFB.swift in Sources */,
 				329BC4DC1FB52E4600572B90 /* DirectoryEnumerator.swift in Sources */,
 				320DE36A1FB5EA8400C1BB2E /* Utils.swift in Sources */,
@@ -1275,7 +1252,6 @@
 				32F8E15F1FB6748800667623 /* NSKeyedUnarchiverWrapper.m in Sources */,
 				32BF188B1FB69D9600AEDE23 /* NSDate+format.m in Sources */,
 				320DE3691FB5EA8400C1BB2E /* Int+Extension.swift in Sources */,
-				32BF18A01FB6A88600AEDE23 /* APNGImageCache.swift in Sources */,
 				32A83DEB1FB6953500498CC1 /* ValidatorDictionary.swift in Sources */,
 				329BC5051FB5333500572B90 /* NSString+FileKit.swift in Sources */,
 				32493F151FB618E300750B12 /* NumberFormatter.swift in Sources */,

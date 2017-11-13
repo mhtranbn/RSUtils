@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "Try it and feedback, many thanks!"
+  s.description  = "String+encode, Time Date String+encode, Async, Device, Swift Validators, AttributedTextView, StatefulViewController, File, CryptoSwift, Timer, Format, Color Formatting, Localize-Swift, genstrings, SwiftyJSON, CurrencyTextField, Try it and feedback, many thanks!"
 
   s.homepage     = "https://github.com/mhtranbn/RSUtils.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"

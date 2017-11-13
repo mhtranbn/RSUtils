@@ -787,8 +787,6 @@ import UIKit
 
 ## StatefulViewController
 
-## Usage
-
 > This guide describes the use of the `StatefulViewController` protocol on `UIViewController`. However, you can also adopt the `StatefulViewController` protocol on any `UIViewController` subclass, such as `UITableViewController` or `UICollectionViewController`, as well as your custom `UIView` subclasses.
 
 First, make sure your view controller adopts to the `StatefulViewController` protocol.
