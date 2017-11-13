@@ -66,4 +66,8 @@ extension String {
     public func authenticate<A: Authenticator>(with authenticator: A) throws -> String {
         return try bytes.authenticate(with: authenticator).toHexString()
     }
+    
+    public func with(_ attributes: StringAttributes) -> NSAttributedString {
+        return NSAttributedString(string: self, attributes: attributes)
+    }
 }

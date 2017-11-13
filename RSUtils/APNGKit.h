@@ -21,4 +21,4 @@ FOUNDATION_EXPORT const unsigned char APNGKitVersionString[];
 #import "pngpriv.h"
 #import "pnglibconf.h"
 #import "pngconf.h"
-#import "pngdebug.h
+

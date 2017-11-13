@@ -544,388 +544,246 @@ regex| checks that the value matches the regex from start to finish| func | Stri
 ```swift
 FQDNOptions(requireTLD: Bool, allowUnderscores: Bool, allowTrailingDot: Bool)
 ```
-## SwiftString
+## AttributedTextView
 
-## Usage
+### General usage
+In interfacebuilder put an UITextView on the canvas and set the base class to AttributedTextView and create a referencing outlet to the a property in  your viewController. In the samples below we have called this property textView1. Always assign to the attributer property when you want to set something.
 
-```swift
-import SwiftString
-```
+### Paragraph styling
+You do have to be aware that the paragraph functions will only be applied after calling the .paragraphApplyStyling function. On start the paragraph styling will use default styling. After each range change (what happens after .all, .match* or .append) the styling will be reset to the default.
 
-## Methods
+### The active range
+Styling will always be applied on the active range. When executing a function on a string, then that complete string will become the active range. If you use .append to add an other string, then that latest string will become the active range. When using the + sign then that will replaced by an append on 2 Attributer objects. All functions on those objects will first be performed before the append will be executed. So if you do an .all then still only one of the strings will be tha active range. You can use brackets to influence the order of execution.
 
-**between(left, right)**
-
-``` swift
-"<a>foo</a>".between("<a>", "</a>") // "foo"
-"<a><a>foo</a></a>".between("<a>", "</a>") // "<a>foo</a>"
-"<a>foo".between("<a>", "</a>") // nil
-"Some strings } are very {weird}, dont you think?".between("{", "}") // "weird"
-"<a></a>".between("<a>", "</a>") // nil
- "<a>foo</a>".between("<a>", "<a>") // nil
-```
-
-**camelize()**
+For instance here all text will be size 20
 
 ```swift
-"os version".camelize() // "osVersion"
-"HelloWorld".camelize() // "helloWorld"
-"someword With Characters".camelize() // "somewordWithCharacters"
-"data_rate".camelize() // "dataRate"
-"background-color".camelize() // "backgroundColor"
+("red".red + "blue".blue).all.size(20)
+```
+
+And here only the text blue will be size 20
+
+```swift
+"red".red + "blue".blue.all.size(20)
+```
+
+And like this all text will be size 20
+
+```swift
+"red".red.append("blue").blue.all.size(20)
+```
+
+### Sample code
+
+Here is a sample of some basic functions:
+
+```swift
+textView1.attributer =
+    "1. ".red
+    .append("This is the first test. ").green
+    .append("Click on ").black
+    .append("evict.nl").makeInteract { _ in
+        UIApplication.shared.open(URL(string: "http://evict.nl")!, options: [:], completionHandler: { completed in })
+    }.underline
+    .append(" for testing links. ").black
+    .append("Next test").underline.makeInteract { _ in
+        print("NEXT")
+    }
+    .all.font(UIFont(name: "SourceSansPro-Regular", size: 16))
+    .setLinkColor(UIColor.purple) 
+```
+
+![animated](https://github.com/evermeer/AttributedTextView/blob/master/Screenshots/Sample1.png?raw=true)
+
+Some more attributes and now using + instead of .append:
+
+```swift
+textView1.attributer =
+    "2. red, ".red.underline.underline(0x00ff00)
+    + "green, ".green.fontName("Helvetica").size(30)
+    + "cyan, ".cyan.size(22)
+    + "orange, ".orange.kern(10)
+    + "blue, ".blue.strikethrough(3).baselineOffset(8)
+    + "black.".shadow(color: UIColor.gray, offset: CGSize(width: 2, height: 3), blurRadius: 3.0)
+```
+
+![animated](https://github.com/evermeer/AttributedTextView/blob/master/Screenshots/Sample2.png?raw=true)
+
+A match and matchAll sample:
+
+```swift
+textView1.attributer = "It is this or it is that where the word is is selected".size(20)
+    .match("is").underline.underline(UIColor.red)
+    .matchAll("is").strikethrough(4)
+```
+
+![animated](https://github.com/evermeer/AttributedTextView/blob/master/Screenshots/Sample3.png?raw=true)
+
+A hashtags and mentions sample:
+
+```swift
+textView1.attributer = "@test: What #hashtags do we have in @evermeer #AtributedTextView library"
+    .matchHashtags.underline
+    .matchMentions
+    .makeInteract { link in
+        UIApplication.shared.open(URL(string: "https://twitter.com\(link.replacingOccurrences(of: "@", with: ""))")!, options: [:], completionHandler: { completed in })
+    }
+```
+
+![animated](https://github.com/evermeer/AttributedTextView/blob/master/Screenshots/Sample4.png?raw=true)
+
+
+Some other text formating samples:
+
+```swift
+textView1.attributer =  (
+    "test stroke".strokeWidth(2).strokeColor(UIColor.red)
+    + "test stroke 2\n".strokeWidth(2).strokeColor(UIColor.blue)
+    + "test strikethrough".strikethrough(2).strikethroughColor(UIColor.red)
+    + " test strikethrough 2\n".strikethrough(2).strikethroughColor(UIColor.yellow)
+    + "letterpress ".letterpress
+    + " obliquenes\n".obliqueness(0.4).backgroundColor(UIColor.cyan)
+    + "expansion\n".expansion(0.8)
+    ).all.size(24)
+```
+
+![animated](https://github.com/evermeer/AttributedTextView/blob/master/Screenshots/Sample5.png?raw=true)
+
+
+Paragraph formatting:
+
+```swift
+textView1.attributer = (
+    "The quick brown fox jumps over the lazy dog.\nPack my box with five dozen liquor jugs.\nSeveral fabulous dixieland jazz groups played with quick tempo."
+    .paragraphLineHeightMultiple(5)
+    .paragraphLineSpacing(6)
+    .paragraphMinimumLineHeight(15)
+    .paragraphMaximumLineHeight(50)
+    .paragraphLineSpacing(10)
+    .paragraphLineBreakModeWordWrapping
+    .paragraphFirstLineHeadIndent(20)
+    .paragraphApplyStyling
+    ).all.size(12)
 ```
 
 
-**capitalize()**
+
+
+### Use the attributedText functionality on a UILabel
+You can also use the Attributer for your UILabel. You only can't use the makeInteract function:
 
 ```swift
-"hello world".capitalize() // "Hello World"
+let myUILabel = UILabel()
+myUILabel.attributedText = ("Just ".red + "some ".green + "text.".orange).attributedText
 ```
 
-**chompLeft(string)**
+
+### Extending AttributedTextView
+In the demo app you can see how you can extend the AttributedTextView with a custom property / function that will perform multiple actions. Here is a simple sample that will show you how you can create a myTitle property that will set multiple attributes:
 
 ```swift
-"foobar".chompLeft("foo") // "bar"
-"foobar".chompLeft("bar") // "foo"
+extension Attributer {
+    open var myTitle: Attributer {
+        get {
+            return self.fontName("Arial").size(28).color(0xffaa66).kern(5)
+        }
+    }
+}
+
+public extension String {
+    var myTitle: Attributer {
+        get {
+            return attributer.myTitle
+        }
+    }
+}
 ```
 
-**chompRight(string)**
+### Decorating the Attributed object
+In the demo app there is also a sample that shows you how you could decorate an Attributed object with default styling.
 
 ```swift
-"foobar".chompRight("bar") // "foo"
-"foobar".chompRight("foo") // "bar"
+        attributedTextView.attributer = decorate(4) { content in return content
+            + "This is our custom title".myTitle
+        }
 ```
 
-**cleanPath()**
+The decorate function can then look something like this:
 
 ```swift
-var foo = "hello//world/..///stuff.txt"
-foo.cleanPath() // foo == "hello/stuff.txt"
+    func decorate(_ id: Int, _ builder: ((_ content: Attributer) -> Attributer)) -> Attributer {
+        var b = "Sample \(id + 1):\n\n".red
+        b = builder(b) // Now add the content
+        return b
+    }
 ```
 
-**cleanedPath()**
+### Creating your own custom label
+There is also an AttributedLabel class which derives from UILabel which makes it easy to create your own custom control that includes support for interfacebuilder. If you put a lable on a form in interfacebuilder and set it's class to your subclass (AttributedLabelSubclassDemo in the sample below) Then you will see the text formated in interface building according to what you have implemented in the configureAttributedLabel function. Here is a sample where a highlightText property is added so that a text can be constructed where that part is highlighted. 
 
 ```swift
-"hello//world/..///stuff.txt".cleanedPath() // "hello/stuff.txt"
+import AttributedTextView
+import UIKit
+
+@IBDesignable open class AttributedLabelSubclassDemo: AttributedLabel {
+
+    // Add this field in interfacebuilder and make sure the interface is updated after changes
+    @IBInspectable var highlightText: String? {
+        didSet { configureAttributedLabel() }
+    }
+
+    // Configure our custom styling.
+    override open func configureAttributedLabel() {
+        self.numberOfLines = 0
+        if let highlightText = self.highlightText {
+            self.attributedText = self.text?.green.match(highlightText).red.attributedText
+        } else {
+            self.attributedText = self.text?.green.attributedText
+        }
+        layoutIfNeeded()
+    }
+}
 ```
 
-**collapseWhitespace()**
+In the demo app there is also a lable subclass for an icon list like this:
+![animated](https://github.com/evermeer/AttributedTextView/blob/master/Screenshots/IconList.png?raw=true)
+
+You can find the code here:
+[Icon bulet list code](https://github.com/evermeer/AttributedTextView/blob/master/Demo/AttributedLabelSubclassDemo.swift#L52)
+
+
+### Creating your own custom textview
+You could do the same as a label with the AttributedTextView (see previous paragraph). In the sample below 2 properties are entered into interfacebuilder the linkText is the part of the text what will be clickable and linkUrl will be the webpage that will be opened.
 
 ```swift
-"  String   \t libraries are   \n\n\t fun\n!  ".collapseWhitespace() // "String libraries are fun !")
+import AttributedTextView
+import UIKit
+
+@IBDesignable class AttributedTextViewSubclassDemo: AttributedTextView {
+
+    // Add this field in interfacebuilder and make sure the interface is updated after changes
+    @IBInspectable var linkText: String? {
+        didSet { configureAttributedTextView() }
+    }
+
+    // Add this field in interfacebuilder and make sure the interface is updated after changes
+    @IBInspectable var linkUrl: String? {
+        didSet { configureAttributedTextView() }
+    }
+
+    // Configure our custom styling.
+    override func configureAttributedTextView() {
+        if let text = self.text, let linkText = self.linkText, let linkUrl = self.linkUrl {
+            self.attributer = text.green.match(linkText).makeInteract { _ in
+                UIApplication.shared.open(URL(string: linkUrl)!, options: [:], completionHandler: { completed in })
+            }
+        } else {
+            self.attributer = (self.text ?? "").green
+        }
+        layoutIfNeeded()
+    }
+}
 ```
-
-**count(string)**
-
-```swift
-"hi hi ho hey hihey".count("hi") // 3
-```
-
-**decodeHTML()**
-
-```swift
-"The Weekend &#8216;King Of The Fall&#8217;".decodeHTML() // "The Weekend ‘King Of The Fall’"
-"<strong> 4 &lt; 5 &amp; 3 &gt; 2 .</strong> Price: 12 &#x20ac;.  &#64; ".decodeHTML() // "<strong> 4 < 5 & 3 > 2 .</strong> Price: 12 €.  @ "
-"this is so &quot;good&quot;".decodeHTML() // "this is so \"good\""
-```
-
-**endsWith(suffix)**
-
-```swift
-"hello world".endsWith("world") // true
-"hello world".endsWith("foo") // false
-```
-
-**ensureLeft(prefix)**
-
-```swift
-"/subdir".ensureLeft("/") // "/subdir"
-"subdir".ensureLeft("/") // "/subdir"
-```
-
-**ensureRight(suffix)**
-
-```swift
-"subdir/".ensureRight("/") // "subdir/"
-"subdir".ensureRight("/") // "subdir/"
-```
-
-**extension**
-
-```swift
-"/hello/world.txt".extension // "txt"
-"/hello/world.tmp.txt".extension // "txt"
-```
-
-**file**
-
-```swift
-"/hello/world.txt".file // "world.txt"
-"/hello/there/".file // "there"
-```
-
-**fileName**
-
-```swift
-"/hello/world.txt".fileName // "world"
-"/hello/there/".fileName // "there"
-```
-
-**index(of: substring)**
-
-```swift
-"hello".index(of: "hell"), // 0
-"hello".index(of: "lo"), // 3
-"hello".index(of: "world") // -1
-"hellohello".index(of: "hel", after: 2) // 5
-```
-
-**indexOf(substring)** - deprecated in favor of `index(of:)` above
-
-```swift
-"hello".indexOf("hell"), // 0
-"hello".indexOf("lo"), // 3
-"hello".indexOf("world") // nil
-```
-
-**initials()**
-
-```swift
-"First".initials(), // "F"
-"First Last".initials(), // "FL"
-"First Middle1 Middle2 Middle3 Last".initials() // "FMMML"
-```
-
-**initialsFirstAndLast()**
-
-```swift
-"First Last".initialsFirstAndLast(), // "FL"
-"First Middle1 Middle2 Middle3 Last".initialsFirstAndLast() // "FL"
-```
-
-**isAlpha()**
-
-```swift
-"fdafaf3".isAlpha() // false
-"afaf".isAlpha() // true
-"dfdf--dfd".isAlpha() // false
-```
-
-**isAlphaNumeric()**
-
-```swift
-"afaf35353afaf".isAlphaNumeric() // true
-"FFFF99fff".isAlphaNumeric() // true
-"99".isAlphaNumeric() // true
-"afff".isAlphaNumeric() // true
-"-33".isAlphaNumeric() // false
-"aaff..".isAlphaNumeric() // false
-```
-
-**isEmpty()**
-
-```swift
-" ".isEmpty() // true
-"\t\t\t ".isEmpty() // true
-"\n\n".isEmpty() // true
-"helo".isEmpty() // false
-```
-
-**isNumeric()**
-
-```swift
-"abc".isNumeric() // false
-"123a".isNumeric() // false
-"1".isNumeric() // true
-"22".isNumeric() // true
-"33.0".isNumeric() // true
-"-63.0".isNumeric() // true
-```
-
-**join(paths...)**
-
-```swift
-var root = "/foo"
-root.join("bar", "/baz", "..", "//somedata.txt") // root == "/foo/bar/somedata.txt"
-
-var root = "/foo"
-root.join(paths: ["bar", "/baz", "..", "//somedata.txt"]) // root == "/foo/bar/somedata.txt"
-```
-
-**joining(paths...)**
-
-```swift
-"/foo".joining("bar", "/baz", "..", "//somedata.txt") // "/foo/bar/somedata.txt"
-"/foo".joining(paths: ["bar", "/baz", "..", "//somedata.txt"]) // "/foo/bar/somedata.txt"
-```
-
-**lastIndex(of: substring)**
-
-```swift
-"hellohellohello".lastIndex(of: "hell"), // 10
-"hellohellohello".lastIndex(of: "lo"), // 13
-"hellohellohello".lastIndex(of: "world") // -1
-"hellohellohello".lastIndex(of: "hel", before: 10) // 5
-```
-
-**latinize()**
-
-```swift
-"šÜįéïöç".latinize() // "sUieioc"
-"crème brûlée".latinize() // "creme brulee"
-```
-
-**lines()**
-
-```swift
-"test".lines() // ["test"]
-"test\nsentence".lines() // ["test", "sentence"]
-"test \nsentence".lines() // ["test ", "sentence"]
-```
-
-**pad(n, string)**
-
-```swift
-"hello".pad(2) // "  hello  "
-"hello".pad(1, "\t") // "\thello\t"
-```
-
-**padLeft(n, string)**
-
-```swift
-"hello".padLeft(10) // "          hello"
-"what?".padLeft(2, "!") // "!!what?"
-```
-
-**padRight(n, string)**
-
-```swift
-"hello".padRight(10) // "hello          "
-"hello".padRight(2, "!") // "hello!!"
-```
-
-**parent**
-
-```swift
-"/hello/there/world.txt".parent // "/hello/there"
-"/hello/there".parent // "/hello"
-```
-
-**startsWith(prefix)**
-
-```swift
-"hello world".startsWith("hello") // true
-"hello world".startsWith("foo") // false
-```
-
-**split(separator)**
-
-```swift
-"hello world".split(" ")[0] // "hello"
-"hello world".split(" ")[1] // "world"
-"helloworld".split(" ")[0] // "helloworld"
-```
-
-**times(n)**
-
-```swift
-"hi".times(3) // "hihihi"
-" ".times(10) // "          "
-```
-
-**toBool()**
-
-```swift
-"asdwads".toBool() // nil
-"true".toBool() // true
-"false".toBool() // false
-```
-
-**toFloat()**
-
-```swift
-"asdwads".toFloat() // nil
-"2.00".toFloat() // 2.0
-"2".toFloat() // 2.0
-```
-
-**toInt()**
-
-```swift
-"asdwads".toInt() // nil
-"2.00".toInt() // 2
-"2".toInt() // 2
-```
-
-**toDate()**
-
-```swift
-"asdwads".toDate() // nil
-"2014-06-03".toDate() // NSDate
-```
-
-**toDateTime()**
-
-```swift
-"asdwads".toDateTime() // nil
-"2014-06-03 13:15:01".toDateTime() // NSDate
-```
-
-**toDouble()**
-
-```swift
-"asdwads".toDouble() // nil
-"2.00".toDouble() // 2.0
-"2".toDouble() // 2.0
-```
-
-**trimmedLeft()**
-
-```swift
-"        How are you? ".trimmedLeft() // "How are you? "
-```
-
-**trimmedRight()**
-
-```swift
-" How are you?   ".trimmedRight() // " How are you?"
-```
-
-**trimmed()**
-
-```swift
-"    How are you?   ".trimmed() // "How are you?"
-```
-
-**slugify()**
-
-```swift
-"Global Thermonuclear Warfare".slugify() // "global-thermonuclear-warfare"
-"Crème brûlée".slugify() // "creme-brulee"
-```
-
-**stripPunctuation()**
-
-```swift
-"My, st[ring] *full* of %punct)".stripPunctuation() // "My string full of punct"
-```
-
-**substring(startIndex, length)**
-
-```swift
-"hello world".substring(0, length: 1) // "h"
-"hello world".substring(0, length: 11) // "hello world"
-```
-
-**[subscript]**
-
-```swift
-"hello world"[0...1] // "he"
-"hello world"[0..<1] // "h"
-"hello world"[0] // "h"
-"hello world"[0...10] // "hello world"
-"hello world"[safe: -1...1] // "he"
-"hello world"[safe: 9...20] // "ld"
 
 ## StatefulViewController
 
