@@ -243,7 +243,7 @@ open class Cache<T: NSCoding> {
         // Otherwise, read from disk
         let path = urlForKey(key).path
         if fileManager.fileExists(atPath: path) {
-            return _awesomeCache_unarchiveObjectSafely(path) as? CacheObject
+            return awesomeCache_unarchiveObjectSafely(path: path) as? CacheObject
         }
 
         return nil
@@ -283,5 +283,13 @@ open class Cache<T: NSCoding> {
         case .date(let date):
             return date
         }
+    }
+}
+
+func awesomeCache_unarchiveObjectSafely(path: String) -> NSObject? {
+    defer {
+    }
+    do {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: path) as! NSObject? ?? NSObject()
     }
 }

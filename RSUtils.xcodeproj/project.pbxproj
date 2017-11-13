@@ -261,8 +261,6 @@
 		32D92F701FB5972B00311183 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D92F6F1FB5972B00311183 /* Async.swift */; };
 		32D92F721FB597D300311183 /* String+encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D92F711FB597D300311183 /* String+encode.swift */; };
 		32F8E15E1FB6748800667623 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8E1591FB6748700667623 /* Cache.swift */; };
-		32F8E15F1FB6748800667623 /* NSKeyedUnarchiverWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F8E15A1FB6748700667623 /* NSKeyedUnarchiverWrapper.m */; };
-		32F8E1601FB6748800667623 /* NSKeyedUnarchiverWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 32F8E15B1FB6748800667623 /* NSKeyedUnarchiverWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32F8E1611FB6748900667623 /* AwesomeCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32F8E15C1FB6748800667623 /* AwesomeCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32F8E1621FB6748900667623 /* CacheObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8E15D1FB6748800667623 /* CacheObject.swift */; };
 		32FB62041FB51BC5001B2ECF /* CMDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB62031FB51BC5001B2ECF /* CMDataTypes.swift */; };
@@ -528,8 +526,6 @@
 		32D92F6F1FB5972B00311183 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		32D92F711FB597D300311183 /* String+encode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+encode.swift"; sourceTree = "<group>"; };
 		32F8E1591FB6748700667623 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
-		32F8E15A1FB6748700667623 /* NSKeyedUnarchiverWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSKeyedUnarchiverWrapper.m; sourceTree = "<group>"; };
-		32F8E15B1FB6748800667623 /* NSKeyedUnarchiverWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSKeyedUnarchiverWrapper.h; sourceTree = "<group>"; };
 		32F8E15C1FB6748800667623 /* AwesomeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeCache.h; sourceTree = "<group>"; };
 		32F8E15D1FB6748800667623 /* CacheObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheObject.swift; sourceTree = "<group>"; };
 		32FB62031FB51BC5001B2ECF /* CMDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMDataTypes.swift; sourceTree = "<group>"; };
@@ -765,8 +761,6 @@
 				329BC4D91FB52E3600572B90 /* NSDictionaryFile.swift */,
 				32BF188C1FB69DB300AEDE23 /* NSFileManager+appFolder.h */,
 				32BF188D1FB69DB300AEDE23 /* NSFileManager+appFolder.m */,
-				32F8E15B1FB6748800667623 /* NSKeyedUnarchiverWrapper.h */,
-				32F8E15A1FB6748700667623 /* NSKeyedUnarchiverWrapper.m */,
 				32D92F6D1FB58F9A00311183 /* NSObject+dispatch.swift */,
 				32D53F7C1FB88E9F00012803 /* NSParagraphStyle+Extension.swift */,
 				32BF18771FB69AE600AEDE23 /* NSString+encode.h */,
@@ -907,7 +901,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32F8E1601FB6748800667623 /* NSKeyedUnarchiverWrapper.h in Headers */,
 				32F8E1611FB6748900667623 /* AwesomeCache.h in Headers */,
 				32A83DF71FB6996100498CC1 /* CMLogger.h in Headers */,
 				32A83DFA1FB6996100498CC1 /* NSArrayDictionary+Description.h in Headers */,
@@ -1245,7 +1238,6 @@
 				32A83DD01FB694B200498CC1 /* AlphaRule.swift in Sources */,
 				329BC5071FB5333500572B90 /* String+FileKit.swift in Sources */,
 				32493F5E1FB61CFA00750B12 /* Reader.swift in Sources */,
-				32F8E15F1FB6748800667623 /* NSKeyedUnarchiverWrapper.m in Sources */,
 				32BF188B1FB69D9600AEDE23 /* NSDate+format.m in Sources */,
 				320DE3691FB5EA8400C1BB2E /* Int+Extension.swift in Sources */,
 				32A83DEB1FB6953500498CC1 /* ValidatorDictionary.swift in Sources */,
